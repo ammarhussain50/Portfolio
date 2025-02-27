@@ -12,7 +12,7 @@ const AboutMe = () => {
       <div className="flex justify-center items-center mt-8 px-4">
         <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl">
           {/* Container 1 */}
-          <div className="container1 p-6 bg-slate-800 opacity-50 rounded-lg flex-1">
+          <div className="container1 p-6 bg-slate-800 opacity-70 rounded-lg flex-1">
             <h1 className="mb-4 text-white font-bold text-xl md:text-2xl">
               Professional Journey
             </h1>
@@ -56,7 +56,7 @@ const AboutMe = () => {
           </div>
 
           {/* Container 2 */}
-          <div className="container2 p-6 bg-slate-800 opacity-50 rounded-lg flex-1">
+          <div className="container2 p-6 bg-slate-800 opacity-70 rounded-lg flex-1">
             <h1 className="mb-4 text-white text-xl md:text-2xl font-bold">
               Educational Journey
             </h1>

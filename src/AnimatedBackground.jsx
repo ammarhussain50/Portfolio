@@ -22,7 +22,7 @@ const icons = [
 
 const AnimatedBackground = () => {
   return (
-    <div className="fixed inset-0 bg-black overflow-hidden z-0">
+    <div className="fixed inset-0 bg-black overflow-hidden z-0 ">
       {icons.map(({ id, icon, size }) => (
         <motion.div
           key={id}
