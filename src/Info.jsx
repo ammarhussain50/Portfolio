@@ -1,40 +1,61 @@
-import React from 'react';
-import SocialButtons from './SocialButtons';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
-const Info = () => {
-      return (
-        <div className="flex items-center justify-center flex-col mt-8 md:mt-14 px-4 relative z-10">
-          {/* Heading */}
-          <div className="flex flex-col md:flex-row gap-3 md:gap-5 text-4xl md:text-6xl lg:text-8xl font-semibold mt-5 mb-5 text-center md:text-left">
-            <h1 className='text-white'>Hi, I'm</h1>
-            <h1 className="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
-              Syed Ammar
-            </h1>
-          </div>
-    
-          {/* Subheading */}
-          <p className="text-lg md:text-xl mt-5 text-center md:text-left text-white">
-            I am a passionate Front End Developer
-          </p>
-    
-          {/* Description */}
-          <p className="w-full md:w-[500px] mt-5 mb-3 text-base md:text-lg lg:text-xl text-center md:text-left text-white">
-            Hi, I’m a passionate and detail-oriented Frontend Developer with a love for crafting beautiful, responsive, and user-friendly web experiences. I specialize in turning ideas into interactive, pixel-perfect designs using modern technologies like HTML5, CSS3, JavaScript, React. Whether it’s building dynamic user interfaces or optimizing performance, I thrive on creating seamless digital experiences that users love.
-          </p>
-    
-          {/* Social Buttons */}
-          <div className="buttons">
-            <SocialButtons className="hover:text-red-600" />
-          </div>
-    
-          {/* Connect Button */}
-          <div className="button mt-4">
-            <button className="bg-gradient-to-r from-blue-400 to-green-400 hover:from-yellow-400 hover:to-yellow-500 rounded-2xl p-1 px-3 text-white transition-all duration-300">
-              Connect with me
-            </button>
-          </div>
-        </div>
-      );
-    };
-    
-    export default Info;
+const InputField = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      'service_6m51rqo',
+      'template_9c5700u',
+      form.current,
+      '5k-J0rIHfaGeTpkxC'
+    )
+    .then((result) => {
+      console.log('SUCCESS!', result.text);
+      alert('Message sent successfully!');
+      form.current.reset();
+    }, (error) => {
+      console.log('FAILED...', error.text);
+      alert('Failed to send message. Please try again later.');
+    });
+  };
+
+  return (
+    <form ref={form} onSubmit={sendEmail} className="space-y-6 w-full">
+      <div className="space-y-4">
+        <input
+          type="text"
+          name="from_name"  // Changed to match EmailJS default variables
+          placeholder="Your Name"
+          required
+          className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-400"
+        />
+        <input
+          type="email"
+          name="from_email" // Changed to match EmailJS default variables
+          placeholder="Your Email"
+          required
+          className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-400"
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          required
+          rows="5"
+          className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-400"
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        className="w-full bg-gradient-to-r from-blue-400 to-green-400 text-white font-semibold py-3 px-6 rounded-lg hover:from-blue-500 hover:to-green-500 transition-all duration-300"
+      >
+        Send Message
+      </button>
+    </form>
+  );
+};
+
+export default InputField;
