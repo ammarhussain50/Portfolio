@@ -3,7 +3,7 @@ import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import project1 from './Images/project1.png'; // Update path accordingly
 import project2 from './Images/project2.png'; // Update path accordingly
 import project3 from './Images/weather.png'; // Update path accordingly
-import project4 from '/Images/world-countries.png'
+import project4 from './Images/world-countries.png'
 
 
 const Projects = () => {
