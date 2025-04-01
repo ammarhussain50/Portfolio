@@ -3,6 +3,7 @@ import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import project1 from './Images/project1.png'; // Update path accordingly
 import project2 from './Images/project2.png'; // Update path accordingly
 import project3 from './Images/weather.png'; // Update path accordingly
+import project4 from '/Images/world-countries.png'
 
 
 const Projects = () => {
@@ -30,6 +31,14 @@ const Projects = () => {
       demoLink: "https://crud-app-using-axios-beta.vercel.app/",
       codeLink: "https://github.com/ammarhussain50/Crud-App-using-Axios",
       image: project2 // Use imported image
+    },
+    {
+      title: "My Portfolio Website",
+      description: "portolio contain react-router dom tailwind css projects.",
+      tech: ["React", "react-router", "tailwind-CSS"],
+      demoLink: "https://worls-country.vercel.app/",
+      codeLink: "https://github.com/ammarhussain50/worls_country",
+      image: project4 // Use imported image
     }
   ];
 
